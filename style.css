@@ -1,0 +1,145 @@
+* { 
+    box-sizing: border-box; 
+}
+
+body {
+    background: #1a0b14;
+    background: radial-gradient(circle at center, #3a1024 0%, #1a0b14 100%);
+    color: white;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* خلفية القلوب المتحركة */
+.hearts-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1; overflow: hidden;
+}
+
+.heart {
+    position: absolute; bottom: -10vh;
+    width: 20px; height: 20px;
+    background: rgba(255, 75, 107, 0.4);
+    transform: rotate(45deg);
+    animation: float 10s infinite ease-in;
+}
+
+.heart::before, .heart::after {
+    content: ''; position: absolute; width: 20px; height: 20px;
+    background: inherit; border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { top: 0; left: -10px; }
+
+/* توزيع عشوائي للقلوب */
+.heart:nth-child(1) { left: 10%; animation-duration: 8s; transform: scale(0.8) rotate(45deg); }
+.heart:nth-child(2) { left: 25%; animation-duration: 12s; transform: scale(1.2) rotate(45deg); }
+.heart:nth-child(3) { left: 40%; animation-duration: 10s; transform: scale(0.9) rotate(45deg); }
+.heart:nth-child(4) { left: 55%; animation-duration: 14s; transform: scale(1.5) rotate(45deg); }
+.heart:nth-child(5) { left: 70%; animation-duration: 9s; transform: scale(1.1) rotate(45deg); }
+.heart:nth-child(6) { left: 85%; animation-duration: 11s; transform: scale(0.7) rotate(45deg); }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(45deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
+}
+
+.container { min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+
+/* تأثير الزجاج الفخم */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 50px 40px;
+    border-radius: 30px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,75,107,0.2);
+}
+
+.pulse { animation: pulseHeart 1.5s infinite; font-size: 3rem; margin-bottom: 15px; }
+@keyframes pulseHeart { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
+h2 { font-family: 'Amiri', serif; font-size: 2.5rem; color: #ffb6c1; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(255,182,193,0.3); }
+
+input {
+    padding: 15px; border-radius: 30px; border: 2px solid rgba(255,182,193,0.3);
+    background: rgba(0,0,0,0.2); color: white; margin: 20px 0; width: 280px;
+    text-align: center; outline: none; font-family: 'Cairo', sans-serif;
+    transition: all 0.3s ease; font-size: 1rem;
+}
+
+input:focus { border-color: #ffb6c1; box-shadow: 0 0 15px rgba(255,182,193,0.4); }
+input::placeholder { color: rgba(255,255,255,0.5); }
+
+.glow-btn {
+    padding: 15px 40px; background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white; border: none; border-radius: 30px; cursor: pointer;
+    font-size: 1.1rem; font-weight: bold; font-family: 'Cairo', sans-serif;
+    transition: all 0.4s ease; box-shadow: 0 10px 20px rgba(255, 65, 108, 0.4);
+    margin-top: 10px;
+}
+
+.glow-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 25px rgba(255, 65, 108, 0.6); }
+
+.header-section { padding: 40px 20px; margin-bottom: 30px; }
+.elegant-title { font-family: 'Amiri', serif; font-size: 3.5rem; color: #ffb6c1; text-shadow: 0 2px 15px rgba(255,182,193,0.4); margin-top: 10px; }
+
+.profile-frame {
+    width: 160px; height: 160px; margin: 0 auto 10px;
+    padding: 8px; border-radius: 50%;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    box-shadow: 0 15px 35px rgba(255, 65, 108, 0.4);
+}
+
+.profile-frame img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #1a0b14; }
+
+.romantic-text { font-family: 'Amiri', serif; font-size: 2rem; color: #ffeb3b; margin: 30px 0 20px; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+
+#timer { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+.time-unit {
+    background: rgba(255, 255, 255, 0.08); padding: 15px 20px; border-radius: 15px; min-width: 90px;
+    border: 1px solid rgba(255, 182, 193, 0.2); backdrop-filter: blur(5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease;
+}
+.time-unit:hover { transform: translateY(-5px); }
+.time-unit span { font-size: 32px; color: #ff416c; font-weight: bold; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+.time-unit p { margin: 5px 0 0; font-size: 1.1rem; color: rgba(255,255,255,0.9); }
+
+.cards-section { margin-bottom: 60px; }
+.grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+.love-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border: 1px solid rgba(255, 65, 108, 0.3);
+    padding: 30px; border-radius: 20px; cursor: pointer; width: 220px;
+    transition: all 0.5s ease; backdrop-filter: blur(10px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    font-size: 1.5rem; font-family: 'Amiri', serif;
+}
+.love-card span { font-size: 1rem; color: rgba(255,255,255,0.6); font-family: 'Cairo', sans-serif; margin-top: 5px;}
+.love-card:hover { transform: translateY(-10px); background: rgba(255, 65, 108, 0.2); border-color: #ff416c; box-shadow: 0 15px 30px rgba(255,65,108,0.4); }
+
+.gallery { padding-bottom: 80px; max-width: 1200px; margin: 0 auto; }
+.gallery-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 0 20px; }
+
+/* تصميم صور البولارويد */
+.photo-item {
+    background: white; padding: 15px 15px 25px; border-radius: 5px;
+    width: 320px; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    transform: rotate(-3deg); transition: all 0.4s ease;
+}
+.photo-item:nth-child(even) { transform: rotate(3deg); }
+.photo-item:hover { transform: scale(1.05) rotate(0); box-shadow: 0 25px 45px rgba(0,0,0,0.6); z-index: 16; }
+
+.img-wrapper { width: 100%; height: 320px; overflow: hidden; border-radius: 3px; margin-bottom: 15px; background: #eee; }
+.img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.photo-item:hover .img-wrapper img { transform: scale(1.1); }
+
+.photo-item p { margin: 0; font-size: 1.3rem; color: #333; font-family: 'Amiri', serif; line-height: 1.6; font-weight: bold; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

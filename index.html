@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى روني❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hearts-bg">
+        <div class="heart"></div><div class="heart"></div><div class="heart"></div>
+        <div class="heart"></div><div class="heart"></div><div class="heart"></div>
+        <div class="heart"></div><div class="heart"></div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="mp3.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="login-screen" class="container">
+        <div class="card glass">
+            <div class="loader-heart pulse">❤️</div>
+            <h2>جاهزة يا روني؟ ✨</h2>
+            <input type="password" id="passInput" placeholder="اكتبي الباسورد بتاعنا...">
+            <button onclick="checkPass()" class="glow-btn">افتحي قلبي 💖</button>
+        </div>
+    </div>
+
+    <div id="secret-content" style="display: none;">
+        <div class="header-section glass-header">
+            <div class="profile-frame">
+                <img src="images/profile.jpg" alt="Rewan">
+            </div>
+            <h1 class="elegant-title">بحبك يا روني❤️</h1>
+        </div>
+
+        <div class="timer-container">
+            <h3 class="romantic-text">أجمل أيام عمري بقالها:</h3>
+            <div id="timer">
+                <div class="time-unit"><span id="days">0</span><p>يوم</p></div>
+                <div class="time-unit"><span id="hours">0</span><p>ساعة</p></div>
+                <div class="time-unit"><span id="minutes">0</span><p>دقيقة</p></div>
+                <div class="time-unit"><span id="seconds">0</span><p>ثانية</p></div>
+            </div>
+        </div>
+
+        <div class="cards-section">
+            <p class="romantic-text">هدايا من قلبي 👇</p>
+            <div class="grid">
+                <div class="love-card" onclick="reveal(this, 'I Love you❤️')">🎁<span>اضغطي هنا</span></div>
+                <div class="love-card" onclick="reveal(this, 'My Lovely girl❤️')">🎁<span>اضغطي هنا</span></div>
+                <div class="love-card" onclick="reveal(this, 'Together forever❤️')">🎁<span>اضغطي هنا</span></div>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <h3 class="romantic-text">حكايتنا في صور 📸</h3>
+            <div class="gallery-grid">
+                <div class="photo-item"><div class="img-wrapper"><img src="images/1.jpg"></div><p>أول مرة شوفتك فيها، عرفت إنك مش هتكوني مجرد ذكرى عابرة ❤️</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/2.jpg"></div><p>ضحكتك دي هي السبب اللي مخليني أستحمل أي حاجة صعبة.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/3.jpg"></div><p>في عيونك، بشوف مستقبلي وبشوف الأمان اللي كنت بدور عليه.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/4.jpg"></div><p>كل تفصيلة فيكي، ملامحك، حكاياتك.. هي اللي كملتني.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/5.jpg"></div><p>بشكر الظروف والوقت اللي جمعني بيكي في يوم من الأيام.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/6.jpg"></div><p>لو سألتيني عن وطني، هقولك إن حضنك هو المكان اللي بنتمي ليه.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/7.jpg"></div><p>وجودك جنبي بيخلي أصعب الأيام تمر بسلام.. يا أغلى من عمري.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/8.jpg"></div><p>انتي الشخص اللي هيفضل قلبي يدق باسمه لحد آخر ثانية.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/9.jpg"></div><p>مش مجرد حب، أنتي الحياة اللي كنت بتمناها وبدعيلك بيها.</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/10.jpg"></div><p>كانت أول صورة تجمعني لوحدنا مع سفاحي الصغنن❤️</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/11.jpg"></div><p>أنتِ وجهتي والمسار، وبكِ يكتمل عمري❤️</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/12.jpg"></div><p>في عيونك، أرى وطناً لا يغترب عنه قلبي❤️</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/13.jpg"></div><p>كل ثانية معك هي حياة كاملة أعيشها بقلب مطمئن❤️</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/14.jpg"></div><p>I love you more than words can say❤️</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/15.jpg"></div><p>In a room full of art, I'd still stare at you❤️</p></div>
+                <div class="photo-item"><div class="img-wrapper"><img src="images/16.jpg"></div><p>..وهنفضل سوا لآخر العمر❤️</p></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
